@@ -1,0 +1,79 @@
+@use "sass:math";
+
+@function calCol($colindex) {
+  @if $colindex == 0 {
+    @return 4;
+  } @else {
+    @return $colindex - 1;
+  }
+}
+
+.container {
+  .grid {
+    height: 100%;
+    width: 100%;
+    @for $totaltiles from 1 through 25 {
+      .tiles#{$totaltiles} {
+        height: 100%;
+        width: calc(100% - 80px);
+        position: relative;
+        $numberOfRows: min(ceil(sqrt($totaltiles)), 5);
+        $numberOfColumns: min(ceil(calc($totaltiles / $numberOfRows)), 5);
+        $minHeight: calc(100% / $numberOfRows);
+        $minWidth: calc(100% / $numberOfColumns);
+        @for $tile from 0 through $totaltiles {
+          $row: floor(calc($tile / $numberOfColumns));
+          $column: $tile % $numberOfColumns;
+          .tile#{$tile} {
+            position: absolute;
+            top: ($row * ($minHeight));
+            left: ($column * ($minWidth));
+            width: $minWidth;
+            height: $minHeight;
+            animation: fadein 2s;
+            transition: all 0.5s ease;
+          }
+        }
+      }
+    }
+  }
+  .stage {
+    height: 100%;
+    width: 100%;
+    @for $totaltiles from 1 through 25 {
+      .tiles#{$totaltiles} {
+        height: 100%;
+        width: calc(100% - 80px);
+        position: relative;
+        $tileWidth: 300px;
+        $tileHeight: 200px;
+        @for $tile from 0 through $totaltiles {
+          .tile#{$tile} {
+            position: absolute;
+            top: $tileHeight * $tile;
+            left: calc(100% - $tileWidth);
+            width: $tileWidth;
+            height: $tileHeight;
+            transition: all 0.5s ease;
+          }
+        }
+        .main {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: calc(100% - $tileWidth);
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,33 @@
+html {
+    font-family: 'Roobert TRIAL', system-ui, sans-serif;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  #root {
+   height:   100%;
+    --toastify-color-success: #4f772d;
+    --toastify-color-warning: #e81313;
+  }
+
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #dde0e4 #ffffff;
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #dde0e4;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+  }
+  body {
+    height:  calc(100% - 50px);
+  }
