@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-const Tile = ({ index }) => {
+const Tile = ({ index, setPinned, pinned }) => {
   const videoRef = useRef(null);
   useEffect(() => {
     navigator.mediaDevices
@@ -13,8 +13,11 @@ const Tile = ({ index }) => {
       });
   }, []);
   return (
-    <div id={`tile${index}`} className={`tile${index} ${index === 0 ? "main" : ""}`} style={{ border: "1px solid red" }}>
+    <div id={`tile${index}`} className={`tile${index} ${pinned === index ? "main" : ""}`} style={{ border: "1px solid red" }}>
       <div>Tile&nbsp;{index}</div>
+      <div style={{ cursor: "pointer" }} onClick={() => setPinned(index)}>
+        {pinned === index ? "Pinned" : "Pin"}
+      </div>
       <video style={{ width: "100%", height: "100%", objectFit: "contain" }} ref={videoRef} autoPlay />
     </div>
   );

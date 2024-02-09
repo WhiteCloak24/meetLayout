@@ -4,6 +4,7 @@ import "./App.scss";
 function App() {
   const [number, setNumber] = useState(1);
   const [showGrid, setShowGrid] = useState(true);
+  const [pinned, setPinned] = useState(0);
   const incr = () => {
     setNumber((prev) => prev + 1);
   };
@@ -28,7 +29,7 @@ function App() {
       <div className={showGrid ? "grid" : "stage"}>
         <div className={`tiles${number}`}>
           {Array.from({ length: number }, (_, i) => i + 1).map((_, index) => {
-            return <Tile index={index} />;
+            return <Tile index={index} setPinned={setPinned} pinned={pinned} />;
           })}
         </div>
       </div>
