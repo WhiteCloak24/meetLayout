@@ -46,10 +46,11 @@
     @for $totaltiles from 1 through 25 {
       .tiles#{$totaltiles} {
         height: 100%;
-        width: calc(100% - 80px);
+        width: 100%;
         position: relative;
         $tileWidth: 300px;
         $tileHeight: 200px;
+        overflow: auto;
         @for $tile from 0 through $totaltiles {
           .tile#{$tile} {
             display: flex;
@@ -59,7 +60,6 @@
             &:nth-child(n) {
               &.after-main {
                 $childNumber: $childNumber + 1;
-                background: blue;
                 position: absolute;
                 top: $tileHeight * calc($tile - 1);
                 left: calc(100% - $tileWidth);
@@ -70,7 +70,6 @@
               }
               &.before-main {
                 $childNumber: $childNumber + 1;
-                background: blue;
                 position: absolute;
                 top: $tileHeight * $tile;
                 left: calc(100% - $tileWidth);
@@ -79,14 +78,11 @@
                 transition: all 0.5s ease;
                 animation: fadein 2s;
               }
-            }
-            &:nth-child(n) {
               &.main {
-                background: red;
-                position: absolute;
+                position: fixed;
                 top: 0;
                 left: 0;
-                height: 100%;
+                bottom: 0;
                 transition: all 0.5s ease;
                 animation: fadein 2s;
                 width: calc(100% - $tileWidth);
