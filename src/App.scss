@@ -55,27 +55,28 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: absolute;
-            top: $tileHeight * $tile;
-            left: calc(100% - $tileWidth);
-            width: $tileWidth;
-            height: $tileHeight;
-            transition: all 0.5s ease;
-            animation: fadein 2s;
+            &:nth-child(n) {
+              background: blue;
+              position: absolute;
+              top: $tileHeight * $tile;
+              left: calc(100% - $tileWidth);
+              width: $tileWidth;
+              content: n;
+              height: $tileHeight;
+              transition: all 0.5s ease;
+              animation: fadein 2s;
+            }
+            &:nth-child(n) {
+              &.main {
+                background: red;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: calc(100% - $tileWidth);
+              }
+            }
           }
-          .main {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: calc(100% - $tileWidth);
-          }
-        }
-        &:nth-of-type(1) .main {
-          background: red;
-        }
-        &:nth-of-type(1) {
-          background: blue;
         }
       }
     }
