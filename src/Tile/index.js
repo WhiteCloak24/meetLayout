@@ -13,7 +13,10 @@ const Tile = ({ index, setPinned, pinned }) => {
       });
   }, []);
   return (
-    <div id={`tile${index}`} className={`tile${index} ${pinned === index ? "main" : ""}`} style={{ border: "1px solid red" }}>
+    <div
+      id={`tile${index}`}
+      className={`tile${index} ${pinned === index ? "main" : pinned > index ? "before-main" : "after-main"}`}
+      style={{ border: "1px solid red" }}>
       <div>Tile&nbsp;{index}</div>
       <div style={{ cursor: "pointer" }} onClick={() => setPinned(index)}>
         {pinned === index ? "Pinned" : "Pin"}

@@ -55,16 +55,30 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            $childNumber: 0;
             &:nth-child(n) {
-              background: blue;
-              position: absolute;
-              top: $tileHeight * $tile;
-              left: calc(100% - $tileWidth);
-              width: $tileWidth;
-              content: n;
-              height: $tileHeight;
-              transition: all 0.5s ease;
-              animation: fadein 2s;
+              &.after-main {
+                $childNumber: $childNumber + 1;
+                background: blue;
+                position: absolute;
+                top: $tileHeight * calc($tile - 1);
+                left: calc(100% - $tileWidth);
+                width: $tileWidth;
+                height: $tileHeight;
+                transition: all 0.5s ease;
+                animation: fadein 2s;
+              }
+              &.before-main {
+                $childNumber: $childNumber + 1;
+                background: blue;
+                position: absolute;
+                top: $tileHeight * $tile;
+                left: calc(100% - $tileWidth);
+                width: $tileWidth;
+                height: $tileHeight;
+                transition: all 0.5s ease;
+                animation: fadein 2s;
+              }
             }
             &:nth-child(n) {
               &.main {
@@ -73,6 +87,8 @@
                 top: 0;
                 left: 0;
                 height: 100%;
+                transition: all 0.5s ease;
+                animation: fadein 2s;
                 width: calc(100% - $tileWidth);
               }
             }
