@@ -29,7 +29,8 @@ function App() {
       <div className={showGrid ? "grid" : "stage"}>
         <div className={`tiles${number}`}>
           {Array.from({ length: number }, (_, i) => i + 1).map((_, index) => {
-            return <Tile index={index} setPinned={setPinned} pinned={pinned} />;
+            const finalPinned = pinned > number - 1 ? 0 : pinned;
+            return <Tile index={index} setPinned={setPinned} pinned={finalPinned} />;
           })}
         </div>
       </div>

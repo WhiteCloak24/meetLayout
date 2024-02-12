@@ -65,7 +65,7 @@
                 top: $tileHeight * calc($tile - 1);
                 left: calc(100% - $tileWidth);
                 width: $tileWidth;
-                height: $tileHeight;
+                height: calc($tileHeight - 10px);
                 transition: all 0.5s linear;
                 animation: fadein 0.5s;
               }
@@ -75,7 +75,7 @@
                 top: $tileHeight * $tile;
                 left: calc(100% - $tileWidth);
                 width: $tileWidth;
-                height: $tileHeight;
+                height: calc($tileHeight - 10px);
                 transition: all 0.5s linear;
                 animation: fadein 0.5s;
               }
