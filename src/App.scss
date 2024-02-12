@@ -31,8 +31,8 @@
             position: absolute;
             top: ($row * ($minHeight));
             left: ($column * ($minWidth));
-            width: $minWidth;
-            height: $minHeight;
+            width: calc($minWidth - 10px);
+            height: calc($minHeight - 10px);
             animation: fadein 2s;
             transition: all 0.5s ease;
           }
