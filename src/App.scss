@@ -50,7 +50,8 @@
         position: relative;
         $tileWidth: 300px;
         $tileHeight: 200px;
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
         @for $tile from 0 through $totaltiles {
           .tile#{$tile} {
             display: flex;
@@ -65,8 +66,8 @@
                 left: calc(100% - $tileWidth);
                 width: $tileWidth;
                 height: $tileHeight;
-                transition: all 0.5s ease;
-                animation: fadein 2s;
+                transition: all 0.5s linear;
+                animation: fadein 0.5s;
               }
               &.before-main {
                 $childNumber: $childNumber + 1;
@@ -75,17 +76,18 @@
                 left: calc(100% - $tileWidth);
                 width: $tileWidth;
                 height: $tileHeight;
-                transition: all 0.5s ease;
-                animation: fadein 2s;
+                transition: all 0.5s linear;
+                animation: fadein 0.5s;
               }
               &.main {
+                margin: 25px;
                 position: fixed;
                 top: 0;
                 left: 0;
                 bottom: 0;
-                transition: all 0.5s ease;
-                animation: fadein 2s;
-                width: calc(100% - $tileWidth);
+                transition: all 0.5s linear;
+                animation: fadein 0.5s;
+                width: calc(100% - $tileWidth - 40px);
               }
             }
           }
